@@ -1,0 +1,77 @@
+<!--index.wxml-->
+<view class="container">
+  
+  <view class="header">
+    <view class="refresh_box">
+      <view class="refresh" bindtap="refreshData">获取最新数据</view>
+    </view>
+  </view>
+  <view class="main">
+    <view class="tab" style="display:{{currentActiveIdx===0?'block':'none'}}">
+      <view class="infoListT tableHeaderT">
+        <view class="infoListT_col">节点</view>
+        <view class="infoListT_col">绑定牛号</view>
+        <view class="infoListT_col">温度(℃)</view>
+        <view class="infoListT_col">获取时间</view>
+      </view>
+      <scroll-view  scroll-y style="height: 800rpx;"
+        bindscrolltoupper="upper" bindscrolltolower="lower" 
+        bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
+        <view class="listBox1">
+          <view wx:for="{{dataT}}">
+            <template is="infoListT" data="{{item}}"></template> 
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+
+     <view class="tab" style="display:{{currentActiveIdx===1?'block':'none'}}">
+      <view class="infoListN tableHeaderN">
+        <view class="infoListN_col">节点</view>
+        <view class="infoListN_col">绑定牛号</view>
+        <view class="infoListN_col">绑定时间</view>
+        <view class="infoListN_col">剩余电量</view>
+      </view>
+      <scroll-view  scroll-y style="height:800rpx;" 
+        bindscrolltoupper="upper" bindscrolltolower="lower" 
+        bindscroll="scroll">
+        <view class="listBox1">
+          <view wx:for="{{dataN}}">
+            <template is="infoListN" data="{{item}}"></template> 
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+  
+
+  <view class="footer">
+    <view class="tabLink" >
+      <view class="tabItem infoT" bindtap="tabChange" style="color:{{currentActiveIdx===item.idx?'#0089e1':'#333'}}" 
+        data-idx="{{item.idx}}" wx:for="{{tabLinkArr}}">{{item.name}}</view>
+    </view>
+    
+  </view>
+  
+  
+</view>
+
+<!--定义渲染列表的模板  -->
+<template name="infoListT">
+  <view class="infoListT" bindtap="goLineChar" data-id="{{item.nodeNum}}">
+    <view class="infoListT_col">{{item.nodeNum}}</view>
+    <view class="infoListT_col">{{item.cattleNo}}</view>
+    <view class="infoListT_col">{{item.temperature}}</view>
+    <view class="infoListT_col"> {{item.dateTime}}</view>
+  </view>
+</template>
+
+<!--定义渲染列表的模板  -->
+<template name="infoListN">
+  <view class="infoListN" bindtap="goNodeDetails" data-id="{{item.nodeNum}}">
+    <view class="infoListN_col">{{item.nodeNum}}</view>
+    <view class="infoListN_col">{{item.cattleNo}}</view>
+    <view class="infoListN_col">{{item.bindTime}}</view>
+    <view class="infoListN_col"> {{item.dateTime}}</view>
+  </view>
+</template>

@@ -1,0 +1,22 @@
+<view class="container">
+  <view  class="detailsList">
+    <view>
+      <text>绑定牛号：</text>
+      <input id="cattleNo" auto-focus maxlength="32" value="{{cattleNo}}" bindinput='bindCattleNo'/>
+      <image src="/img/delete_normal.png" bindtap='deleteText'></image>
+    </view>
+    <view>
+      <text>绑定日期：</text>
+      <picker mode="date" value="{{date}}" start="2015-09-01" end="2050-12-01" bindchange="bindDateChange">
+        <view class="picker inputCss">{{date}}</view>
+      </picker>
+    </view>
+    <view>
+      <text>绑定时间：</text>
+      <picker mode="time" value="{{time}}" start="00:00" end="24:00" bindchange="bindTimeChange">
+        <view class="picker inputCss">{{time}}</view>
+      </picker>
+    </view>
+    <button class="okBtn" bindtap="okToChange">确定</button>
+  </view>
+</view>

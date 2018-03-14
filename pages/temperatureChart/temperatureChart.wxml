@@ -1,0 +1,24 @@
+<!--pages/temperatureChart/temperatureChart.wxml-->
+<view class="container">
+  <view class="header">
+    <view class="nodeInfoBox">
+      <view class="nodeName">
+        {{nodeInfo.nodeName}}
+      </view>
+      <view class="cattleNo">
+       （{{nodeInfo.cattleNo}}）
+      </view>
+    </view>
+  </view>
+  <view class="main" >
+    <view class="tabBox" >
+      <view class="tabItem" bindtap="updateData" 
+      style="color:{{currentActiveIdx===item.idx?'#53BC53':'#999'}};border-bottom:{{currentActiveIdx===item.idx?'6rpx solid #53bc53':'4px solid transparent'}};" 
+        data-idx="{{item.idx}}" wx:for="{{tabArr}}">{{item.name}}</view>
+    </view>
+    <canvas canvas-id="lineCanvas" disable-scroll="true"
+      class="canvas LineCanvas" bindtouchstart="touchHandler"></canvas>
+    
+  </view>
+  <view class="footer"></view>
+</view>

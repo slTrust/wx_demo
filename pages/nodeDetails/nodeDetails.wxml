@@ -1,0 +1,48 @@
+<view class="container">
+  <view  class="detailsList">
+    <view>
+      <text>节点编号：</text>
+      <text class="nodeNumber">{{nodeNumber}}</text>
+    </view>
+    <view>
+      <text>剩余电量：</text>
+      <text>{{residualElectricity}}</text>
+    </view>
+  </view>
+  <view  class="detailsList">
+    <view>
+      <text>绑定牛号：</text>
+      <text class="bingingCattleNo">{{bindingCattleNo}}</text>
+    </view>
+    <view>
+      <text>绑定时间：</text>
+      <text>{{bindingDateTime}}</text>
+    </view>
+    <view class="bindingBtn">
+      <button bindtap="unbind" class="normalBtn" disabled="{{disabled}}">解除绑定</button>
+      <button bindtap="modifyBinding" class="'normalBtn">修改绑定</button>
+      <modal hidden="{{hidden}}" title="提示" confirm-text="是" cancel-text="否" bindcancel="cancel" bindconfirm="confirm" no-cancel="{{nocancel}}">{{modalText}}
+      </modal>
+    </view>
+  </view>
+  <view class="bindingHistory">
+    <text class="historyTitle">绑定历史信息</text>
+    <view class="table">
+      <view class="tr bg-w">
+        <view class="th">绑定牛号</view>
+        <view class="th">绑定期间</view>
+      </view>
+      <block wx:for="{{listData}}" wx:key="{{code}}">
+        <!-- 隔行变色处理（但目前没有要求） -->
+        <view class="tableTr bg-g" wx:if="{{index % 2 == 0}}"> 
+          <view class="td">{{item.cattleNo}}</view>
+          <view class="td">{{item.dateRang}}</view>
+        </view>
+        <view class="tableTr" wx:else>
+          <view class="td">{{item.cattleNo}}</view>
+          <view class="td">{{item.dateRang}}</view>
+        </view>
+      </block>
+    </view>
+  </view>
+</view>

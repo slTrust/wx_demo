@@ -1,0 +1,4 @@
+<view class="container" >
+  <image class="image" src="{{image}}"></image>
+</view>
+

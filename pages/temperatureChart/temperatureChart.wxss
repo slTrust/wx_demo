@@ -1,0 +1,46 @@
+/* pages/temperatureChart/temperatureChart.wxss */
+page{
+  height: 100%;
+  width:100%;
+  box-sizing: border-box;
+  word-break: break-all;
+}
+.container{height: 100%;box-sizing: border-box;display: flex;flex-direction: column;justify-content: flex-start;}
+
+.header .nodeInfoBox{display: flex;flex-direction: row;justify-content: flex-start;padding:40rpx;}
+.header .nodeInfoBox view{color:#0089e1;padding:20rpx 20rpx;border:0px solid red;line-height: 32rpx;}
+
+.main .tabBox{
+  border:0px solid red;
+  display: flex;
+  flex-direction: row;
+  padding:0 40rpx 40rpx;
+}
+.main .tabBox .tabItem{
+  padding:16rpx;
+  position:relative;
+  font-size:32rpx;
+  color:#999;
+  border-bottom:6rpx solid transparent;
+  box-sizing: border-box;
+}
+.main .tabBox .tabItem:nth-child(2)::before,.main .tabBox .tabItem:nth-child(2)::after{
+  content:'';
+  position: absolute;
+  top:22rpx;
+  left:100%; 
+  display:block;
+  height:32rpx;
+  width:6rpx;
+  background:#999;
+}
+.main .tabBox .tabItem:nth-child(2)::before{left:-1rpx; }
+
+
+/*图表区域  */
+.LineCanvas{
+  width:100%;
+  height:300px;
+  box-sizing: border-box;
+  border:0px solid red;
+}

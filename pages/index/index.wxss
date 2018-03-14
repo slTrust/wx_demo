@@ -1,0 +1,53 @@
+page{height: 100%; word-break: break-all;}
+.container{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content:flex-start;
+}
+
+.header{}
+.header .refresh{background:#f2f2f2;padding:20rpx 0 20rpx 40rpx;}
+
+.main{flex-grow: 1;}
+.main .tab{
+  display: flex;
+  flex-direction: column; 
+}
+
+
+/*第一个列表的样式  */
+.tableHeaderT{background:#53bc53;color:#fff;}
+.infoListT{display: flex;flex-direction: row;padding:20rpx 0;border-bottom:1rpx solid #ddd;}
+.infoListT .infoListT_col{box-sizing: border-box;text-align:center;}
+.infoListT .infoListT_col:nth-child(1){flex:25%;}
+.infoListT .infoListT_col:nth-child(2){flex:35%;}
+.infoListT .infoListT_col:nth-child(3){flex:20%;}
+.infoListT .infoListT_col:nth-child(4){flex:20%;}
+
+/*第二个列表的样式  */
+.tableHeaderN{background:#53bc53;color:#fff;}
+.infoListN{display: flex;flex-direction: row;padding:20rpx 0;border-bottom:1rpx solid #ddd;}
+.infoListN .infoListN_col{box-sizing: border-box;text-align:center;}
+.infoListN .infoListN_col:nth-child(1){flex:15%;}
+.infoListN .infoListN_col:nth-child(2){flex:25%;}
+.infoListN .infoListN_col:nth-child(3){flex:40%;}
+.infoListN .infoListN_col:nth-child(4){flex:20%;}
+
+
+.footer{
+}
+.footer .tabLink{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.footer .tabLink .tabItem{
+  flex:1;
+  text-align: center;
+  line-height: 60rpx;
+  padding:20rpx;
+}
+.footer .tabLink .tabItem.active{
+  color:#0089e1;
+}
